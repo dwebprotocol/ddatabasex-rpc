@@ -1,9 +1,9 @@
-# @hyperspace/rpc
+# @dhub/rpc
 
-The raw hrpc layer for Hyperspace
+The raw hrpc layer for dHub
 
 ```
-npm install @hyperspace/rpc
+npm install @dhub/rpc
 ```
 
 # License
