@@ -1,33 +1,33 @@
 {
-  "name": "@hyperspace/rpc",
-  "version": "1.15.0",
-  "description": "Raw RPC layer for Hyperspace",
+  "name": "@dhub/rpc",
+  "version": "1.0.0",
+  "description": "Raw RPC layer for dHub.",
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "build": "hrpc schema.proto --rpc=index.js --messages=messages.js"
+    "build": "drpc schema.proto --rpc=index.js --messages=messages.js"
   },
-  "author": "Hypercore Protocol Team",
+  "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "hrpc": "^2.1.1",
+    "drpc": "^1.0.0",
     "standard": "^14.3.4"
   },
   "dependencies": {
-    "hrpc-runtime": "^2.0.0"
+    "drpc-runtime": "^1.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyperspace-org/rpc.git"
+    "url": "git+https://github.com/dwebprotocol/dhub-rpc.git"
   },
   "keywords": [
-    "hyperspace",
+    "dhub",
     "rpc",
     "raw",
-    "hrpc"
+    "drpc"
   ],
   "bugs": {
-    "url": "https://github.com/hyperspace-org/rpc/issues"
+    "url": "https://github.com/dwebprotocol/dhub-rpc/issues"
   },
-  "homepage": "https://github.com/hyperspace-org/rpc#readme"
+  "homepage": "https://dwebx.org"
 }
