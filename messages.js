@@ -5,7 +5,7 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable camelcase */
 
-var encodings = require('hrpc-runtime/encodings')
+var encodings = require('drpc_dweb-runtime/encodings')
 var varint = encodings.varint
 var skip = encodings.skip
 
@@ -16,7 +16,7 @@ var Peer = exports.Peer = {
   decode: null
 }
 
-var HyperspaceStatusResponse = exports.HyperspaceStatusResponse = {
+var DHubStatusResponse = exports.DHubStatusResponse = {
   buffer: true,
   encodingLength: null,
   encode: null,
@@ -311,7 +311,7 @@ var RPCError = exports.RPCError = {
 }
 
 definePeer()
-defineHyperspaceStatusResponse()
+defineDHubStatusResponse()
 defineOpenRequest()
 defineOpenResponse()
 defineFeedEvent()
@@ -438,10 +438,10 @@ function definePeer () {
   }
 }
 
-function defineHyperspaceStatusResponse () {
-  HyperspaceStatusResponse.encodingLength = encodingLength
-  HyperspaceStatusResponse.encode = encode
-  HyperspaceStatusResponse.decode = decode
+function defineDHubStatusResponse () {
+  DHubStatusResponse.encodingLength = encodingLength
+  DHubStatusResponse.encode = encode
+  DHubStatusResponse.decode = decode
 
   function encodingLength (obj) {
     var length = 0

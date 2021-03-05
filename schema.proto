@@ -1,7 +1,7 @@
 syntax = "proto2";
 
-package hyperspace;
-import "hrpc.proto";
+package dhub;
+import "drpc_dweb.proto";
 
 // General Structs
 message Peer {
@@ -10,15 +10,15 @@ message Peer {
   required string type = 3;
 }
 
-// Hyperspace Methods
-message HyperspaceStatusResponse {
+// dHub Methods
+message DHubStatusResponse {
   required string apiVersion = 1;
   optional bool holepunchable = 2;
   optional string remoteAddress = 3;
   optional string version = 4;
 }
 
-// Corestore Methods
+// Basestore Methods
 
 message OpenRequest {
   required uint32 id = 1;
@@ -87,7 +87,7 @@ message NetworkExtensionMessage {
   required bytes data = 4;
 }
 
-// Hypercore Methods
+// DDatabase Methods
 
 message CloseRequest {
   required uint32 id = 1;
@@ -193,7 +193,7 @@ message UnwatchUploadsRequest {
   required uint64 id = 1;
 }
 
-// Hypercore Events
+// DDatabase Events
 
 message AppendEvent {
   required uint64 id = 1;
@@ -252,7 +252,7 @@ service Hyperspace {
   option (hrpc.service) = 1;
 
   // Methods
-  rpc Status (hrpc.Void) returns (HyperspaceStatusResponse) { option (hrpc.method) = 1; }
+  rpc Status (hrpc.Void) returns (DHubStatusResponse) { option (hrpc.method) = 1; }
   rpc Stop (hrpc.Void) returns (hrpc.Void) { option (hrpc.method) = 2; }
 }
 
@@ -266,7 +266,7 @@ service Corestore {
   rpc OnFeed (FeedEvent) returns (hrpc.Void)  { option (hrpc.method) = 2; }
 }
 
-service Hypercore {
+service DDatabase {
   option (hrpc.service) = 3;
 
    // Methods
