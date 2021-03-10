@@ -684,9 +684,9 @@ module.exports = class DRPCSession extends DRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.hyperspace = new DRPCServiceDHub(rpc)
-    this.corestore = new DRPCServiceBasestore(rpc)
-    this.hypercore = new DRPCServiceDDatabase(rpc)
+    this.dhub = new DRPCServiceDHub(rpc)
+    this.basestorevault = new DRPCServiceBasestore(rpc)
+    this.ddatabase = new DRPCServiceDDatabase(rpc)
     this.network = new DRPCServiceNetwork(rpc)
   }
 
