@@ -1,6 +1,6 @@
 {
   "name": "@dhub/rpc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Raw RPC layer for dHub.",
   "main": "index.js",
   "scripts": {
