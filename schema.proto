@@ -36,7 +36,7 @@ message OpenResponse {
   optional bytes discoveryKey = 6;
 }
 
-// Basestorevault Events
+// Basestore Events
 
 message FeedEvent {
   required bytes key = 1;
@@ -256,7 +256,7 @@ service DHub {
   rpc Stop (drpc_dweb.Void) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 2; }
 }
 
-service Basestorevault {
+service Basestore {
   option (drpc_dweb.service) = 2;
 
    // Methods

@@ -685,7 +685,7 @@ module.exports = class DRPCSession extends DRPC {
     })
 
     this.dhub = new DRPCServiceDHub(rpc)
-    this.basestorevault = new DRPCServiceBasestore(rpc)
+    this.basestore = new DRPCServiceBasestore(rpc)
     this.ddatabase = new DRPCServiceDDatabase(rpc)
     this.network = new DRPCServiceNetwork(rpc)
   }
