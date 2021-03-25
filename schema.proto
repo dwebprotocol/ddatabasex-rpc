@@ -1,7 +1,7 @@
 syntax = "proto2";
 
 package dhub;
-import "drpc_dweb.proto";
+import "drpc.proto";
 
 // General Structs
 message Peer {
@@ -249,77 +249,77 @@ message ExtensionMessage {
 }
 
 service DHub {
-  option (drpc_dweb.service) = 1;
+  option (drpc.service) = 1;
 
   // Methods
-  rpc Status (drpc_dweb.Void) returns (DHubStatusResponse) { option (drpc_dweb.method) = 1; }
-  rpc Stop (drpc_dweb.Void) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 2; }
+  rpc Status (drpc.Void) returns (DHubStatusResponse) { option (drpc.method) = 1; }
+  rpc Stop (drpc.Void) returns (drpc.Void) { option (drpc.method) = 2; }
 }
 
 service Basestore {
-  option (drpc_dweb.service) = 2;
+  option (drpc.service) = 2;
 
    // Methods
-  rpc Open (OpenRequest) returns (OpenResponse) { option (drpc_dweb.method) = 1; }
+  rpc Open (OpenRequest) returns (OpenResponse) { option (drpc.method) = 1; }
 
   // Events
-  rpc OnFeed (FeedEvent) returns (drpc_dweb.Void)  { option (drpc_dweb.method) = 2; }
+  rpc OnFeed (FeedEvent) returns (drpc.Void)  { option (drpc.method) = 2; }
 }
 
 service DDatabase {
-  option (drpc_dweb.service) = 3;
+  option (drpc.service) = 3;
 
    // Methods
-  rpc Get (GetRequest) returns (GetResponse) { option (drpc_dweb.method) = 1; }
-  rpc Append (AppendRequest) returns (AppendResponse) { option (drpc_dweb.method) = 2; }
-  rpc Update (UpdateRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 3; }
-  rpc Seek (SeekRequest) returns (SeekResponse) { option (drpc_dweb.method) = 4; }
-  rpc Has (HasRequest) returns (HasResponse) { option (drpc_dweb.method) = 5; }
-  rpc Cancel (CancelRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 6; }
-  rpc Download (DownloadRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 7; }
-  rpc Downloaded (DownloadedRequest) returns (DownloadedResponse) { option (drpc_dweb.method) = 8; }
-  rpc Undownload (UndownloadRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 9; }
-  rpc Close (CloseRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 10; }
-  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 11; }
-  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 12; }
-  rpc SendExtension (ExtensionMessage) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 13; }
+  rpc Get (GetRequest) returns (GetResponse) { option (drpc.method) = 1; }
+  rpc Append (AppendRequest) returns (AppendResponse) { option (drpc.method) = 2; }
+  rpc Update (UpdateRequest) returns (drpc.Void) { option (drpc.method) = 3; }
+  rpc Seek (SeekRequest) returns (SeekResponse) { option (drpc.method) = 4; }
+  rpc Has (HasRequest) returns (HasResponse) { option (drpc.method) = 5; }
+  rpc Cancel (CancelRequest) returns (drpc.Void) { option (drpc.method) = 6; }
+  rpc Download (DownloadRequest) returns (drpc.Void) { option (drpc.method) = 7; }
+  rpc Downloaded (DownloadedRequest) returns (DownloadedResponse) { option (drpc.method) = 8; }
+  rpc Undownload (UndownloadRequest) returns (drpc.Void) { option (drpc.method) = 9; }
+  rpc Close (CloseRequest) returns (drpc.Void) { option (drpc.method) = 10; }
+  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 11; }
+  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 12; }
+  rpc SendExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 13; }
 
-  rpc AcquireLock (LockRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 14; }
-  rpc ReleaseLock (LockRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 15; }
+  rpc AcquireLock (LockRequest) returns (drpc.Void) { option (drpc.method) = 14; }
+  rpc ReleaseLock (LockRequest) returns (drpc.Void) { option (drpc.method) = 15; }
 
   // Events
-  rpc OnAppend (AppendEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 16; }
-  rpc OnClose (CloseEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 17; }
-  rpc OnPeerOpen (PeerEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 18; }
-  rpc OnPeerRemove (PeerEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 19; }
-  rpc OnExtension (ExtensionMessage) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 20; }
-  rpc OnWait (WaitEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 21; }
+  rpc OnAppend (AppendEvent) returns (drpc.Void) { option (drpc.method) = 16; }
+  rpc OnClose (CloseEvent) returns (drpc.Void) { option (drpc.method) = 17; }
+  rpc OnPeerOpen (PeerEvent) returns (drpc.Void) { option (drpc.method) = 18; }
+  rpc OnPeerRemove (PeerEvent) returns (drpc.Void) { option (drpc.method) = 19; }
+  rpc OnExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 20; }
+  rpc OnWait (WaitEvent) returns (drpc.Void) { option (drpc.method) = 21; }
 
   // Downloads
-  rpc WatchDownloads (WatchDownloadsRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 22;  }
-  rpc UnwatchDownloads (UnwatchDownloadsRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 23;  }
-  rpc OnDownload (DownloadEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 24; }
+  rpc WatchDownloads (WatchDownloadsRequest) returns (drpc.Void) { option (drpc.method) = 22;  }
+  rpc UnwatchDownloads (UnwatchDownloadsRequest) returns (drpc.Void) { option (drpc.method) = 23;  }
+  rpc OnDownload (DownloadEvent) returns (drpc.Void) { option (drpc.method) = 24; }
 
   // Uploads
-  rpc WatchUploads (WatchUploadsRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 25;  }
-  rpc UnwatchUploads (UnwatchUploadsRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 26;  }
-  rpc OnUpload (UploadEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 27; }
+  rpc WatchUploads (WatchUploadsRequest) returns (drpc.Void) { option (drpc.method) = 25;  }
+  rpc UnwatchUploads (UnwatchUploadsRequest) returns (drpc.Void) { option (drpc.method) = 26;  }
+  rpc OnUpload (UploadEvent) returns (drpc.Void) { option (drpc.method) = 27; }
 }
 
 service Network {
-  option (drpc_dweb.service) = 4;
+  option (drpc.service) = 4;
 
    // Methods
-  rpc Open (drpc_dweb.Void) returns (OpenNetworkResponse) { option (drpc_dweb.method) = 1; }
-  rpc Configure (ConfigureNetworkRequest) returns (NetworkStatusResponse) { option (drpc_dweb.method) = 2; }
-  rpc Status (NetworkStatusRequest) returns (NetworkStatusResponse) { option (drpc_dweb.method) = 3; }
-  rpc AllStatuses (drpc_dweb.Void) returns (AllNetworkStatusesResponse) { option (drpc_dweb.method) = 4; }
-  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 5; }
-  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 6; }
-  rpc SendExtension (ExtensionMessage) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 7; }
+  rpc Open (drpc.Void) returns (OpenNetworkResponse) { option (drpc.method) = 1; }
+  rpc Configure (ConfigureNetworkRequest) returns (NetworkStatusResponse) { option (drpc.method) = 2; }
+  rpc Status (NetworkStatusRequest) returns (NetworkStatusResponse) { option (drpc.method) = 3; }
+  rpc AllStatuses (drpc.Void) returns (AllNetworkStatusesResponse) { option (drpc.method) = 4; }
+  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 5; }
+  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 6; }
+  rpc SendExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 7; }
 
   // Events
-  rpc OnPeerAdd (PeerEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 8; }
-  rpc OnPeerRemove (PeerEvent) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 9; }
-  rpc OnExtension (ExtensionMessage) returns (drpc_dweb.Void) { option (drpc_dweb.method) = 10; }
+  rpc OnPeerAdd (PeerEvent) returns (drpc.Void) { option (drpc.method) = 8; }
+  rpc OnPeerRemove (PeerEvent) returns (drpc.Void) { option (drpc.method) = 9; }
+  rpc OnExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 10; }
 }

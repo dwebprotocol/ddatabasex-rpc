@@ -1,6 +1,6 @@
 const messages = require('./messages')
-const DRPC = require('drpc_dweb-runtime')
-const RPC = require('drpc_dweb-runtime/rpc')
+const DRPC = require('drpc-runtime')
+const RPC = require('drpc-runtime/rpc')
 
 const errorEncoding = {
   encode: messages.RPCError.encode,
@@ -684,9 +684,9 @@ module.exports = class DRPCSession extends DRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.dhub = new DRPCServiceDHub(rpc)
+    this.dHub = new DRPCServiceDHub(rpc)
     this.basestore = new DRPCServiceBasestore(rpc)
-    this.ddatabase = new DRPCServiceDDatabase(rpc)
+    this.dDatabase = new DRPCServiceDDatabase(rpc)
     this.network = new DRPCServiceNetwork(rpc)
   }
 

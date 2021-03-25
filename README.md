@@ -1,6 +1,6 @@
 # @dhub/rpc
 
-The raw drpc_dweb layer for dHub
+The raw dweb-drpc layer for dHub
 
 ```
 npm install @dhub/rpc
