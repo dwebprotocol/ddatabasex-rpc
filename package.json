@@ -1,20 +1,20 @@
 {
   "name": "@dhub/rpc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Raw RPC layer for dHub.",
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "build": "drpc schema.proto --rpc=index.js --messages=messages.js"
+    "build": "dwrpc schema.proto --rpc=index.js --messages=messages.js"
   },
   "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "dweb-drpc": "^1.0.0",
+    "dwrpc": "^1.0.0",
     "standard": "^14.3.4"
   },
   "dependencies": {
-    "drpc-runtime": "^1.0.0"
+    "dwrpc-runtime": "^1.0.0"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "dhub",
     "rpc",
     "raw",
-    "dweb-drpc"
+    "dwrpc"
   ],
   "bugs": {
     "url": "https://github.com/dwebprotocol/dhub-rpc/issues"

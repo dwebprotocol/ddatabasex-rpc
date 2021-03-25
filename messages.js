@@ -5,7 +5,7 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable camelcase */
 
-var encodings = require('drpc-runtime/encodings')
+var encodings = require('dwrpc-runtime/encodings')
 var varint = encodings.varint
 var skip = encodings.skip
 
@@ -16,7 +16,7 @@ var Peer = exports.Peer = {
   decode: null
 }
 
-var DHubStatusResponse = exports.DHubStatusResponse = {
+var DWHubStatusResponse = exports.DWHubStatusResponse = {
   buffer: true,
   encodingLength: null,
   encode: null,
@@ -311,7 +311,7 @@ var RPCError = exports.RPCError = {
 }
 
 definePeer()
-defineDHubStatusResponse()
+defineDWHubStatusResponse()
 defineOpenRequest()
 defineOpenResponse()
 defineFeedEvent()
@@ -438,10 +438,10 @@ function definePeer () {
   }
 }
 
-function defineDHubStatusResponse () {
-  DHubStatusResponse.encodingLength = encodingLength
-  DHubStatusResponse.encode = encode
-  DHubStatusResponse.decode = decode
+function defineDWHubStatusResponse () {
+  DWHubStatusResponse.encodingLength = encodingLength
+  DWHubStatusResponse.encode = encode
+  DWHubStatusResponse.decode = decode
 
   function encodingLength (obj) {
     var length = 0

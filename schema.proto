@@ -1,7 +1,7 @@
 syntax = "proto2";
 
 package dhub;
-import "drpc.proto";
+import "dwrpc.proto";
 
 // General Structs
 message Peer {
@@ -11,7 +11,7 @@ message Peer {
 }
 
 // dHub Methods
-message DHubStatusResponse {
+message DWHubStatusResponse {
   required string apiVersion = 1;
   optional bool holepunchable = 2;
   optional string remoteAddress = 3;
@@ -249,77 +249,77 @@ message ExtensionMessage {
 }
 
 service DHub {
-  option (drpc.service) = 1;
+  option (dwrpc.service) = 1;
 
   // Methods
-  rpc Status (drpc.Void) returns (DHubStatusResponse) { option (drpc.method) = 1; }
-  rpc Stop (drpc.Void) returns (drpc.Void) { option (drpc.method) = 2; }
+  rpc Status (dwrpc.Void) returns (DWHubStatusResponse) { option (dwrpc.method) = 1; }
+  rpc Stop (dwrpc.Void) returns (dwrpc.Void) { option (dwrpc.method) = 2; }
 }
 
 service Basestore {
-  option (drpc.service) = 2;
+  option (dwrpc.service) = 2;
 
    // Methods
-  rpc Open (OpenRequest) returns (OpenResponse) { option (drpc.method) = 1; }
+  rpc Open (OpenRequest) returns (OpenResponse) { option (dwrpc.method) = 1; }
 
   // Events
-  rpc OnFeed (FeedEvent) returns (drpc.Void)  { option (drpc.method) = 2; }
+  rpc OnFeed (FeedEvent) returns (dwrpc.Void)  { option (dwrpc.method) = 2; }
 }
 
 service DDatabase {
-  option (drpc.service) = 3;
+  option (dwrpc.service) = 3;
 
    // Methods
-  rpc Get (GetRequest) returns (GetResponse) { option (drpc.method) = 1; }
-  rpc Append (AppendRequest) returns (AppendResponse) { option (drpc.method) = 2; }
-  rpc Update (UpdateRequest) returns (drpc.Void) { option (drpc.method) = 3; }
-  rpc Seek (SeekRequest) returns (SeekResponse) { option (drpc.method) = 4; }
-  rpc Has (HasRequest) returns (HasResponse) { option (drpc.method) = 5; }
-  rpc Cancel (CancelRequest) returns (drpc.Void) { option (drpc.method) = 6; }
-  rpc Download (DownloadRequest) returns (drpc.Void) { option (drpc.method) = 7; }
-  rpc Downloaded (DownloadedRequest) returns (DownloadedResponse) { option (drpc.method) = 8; }
-  rpc Undownload (UndownloadRequest) returns (drpc.Void) { option (drpc.method) = 9; }
-  rpc Close (CloseRequest) returns (drpc.Void) { option (drpc.method) = 10; }
-  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 11; }
-  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 12; }
-  rpc SendExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 13; }
+  rpc Get (GetRequest) returns (GetResponse) { option (dwrpc.method) = 1; }
+  rpc Append (AppendRequest) returns (AppendResponse) { option (dwrpc.method) = 2; }
+  rpc Update (UpdateRequest) returns (dwrpc.Void) { option (dwrpc.method) = 3; }
+  rpc Seek (SeekRequest) returns (SeekResponse) { option (dwrpc.method) = 4; }
+  rpc Has (HasRequest) returns (HasResponse) { option (dwrpc.method) = 5; }
+  rpc Cancel (CancelRequest) returns (dwrpc.Void) { option (dwrpc.method) = 6; }
+  rpc Download (DownloadRequest) returns (dwrpc.Void) { option (dwrpc.method) = 7; }
+  rpc Downloaded (DownloadedRequest) returns (DownloadedResponse) { option (dwrpc.method) = 8; }
+  rpc Undownload (UndownloadRequest) returns (dwrpc.Void) { option (dwrpc.method) = 9; }
+  rpc Close (CloseRequest) returns (dwrpc.Void) { option (dwrpc.method) = 10; }
+  rpc RegisterExtension (RegisterExtensionRequest) returns (dwrpc.Void) { option (dwrpc.method) = 11; }
+  rpc UnregisterExtension (UnregisterExtensionRequest) returns (dwrpc.Void) { option (dwrpc.method) = 12; }
+  rpc SendExtension (ExtensionMessage) returns (dwrpc.Void) { option (dwrpc.method) = 13; }
 
-  rpc AcquireLock (LockRequest) returns (drpc.Void) { option (drpc.method) = 14; }
-  rpc ReleaseLock (LockRequest) returns (drpc.Void) { option (drpc.method) = 15; }
+  rpc AcquireLock (LockRequest) returns (dwrpc.Void) { option (dwrpc.method) = 14; }
+  rpc ReleaseLock (LockRequest) returns (dwrpc.Void) { option (dwrpc.method) = 15; }
 
   // Events
-  rpc OnAppend (AppendEvent) returns (drpc.Void) { option (drpc.method) = 16; }
-  rpc OnClose (CloseEvent) returns (drpc.Void) { option (drpc.method) = 17; }
-  rpc OnPeerOpen (PeerEvent) returns (drpc.Void) { option (drpc.method) = 18; }
-  rpc OnPeerRemove (PeerEvent) returns (drpc.Void) { option (drpc.method) = 19; }
-  rpc OnExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 20; }
-  rpc OnWait (WaitEvent) returns (drpc.Void) { option (drpc.method) = 21; }
+  rpc OnAppend (AppendEvent) returns (dwrpc.Void) { option (dwrpc.method) = 16; }
+  rpc OnClose (CloseEvent) returns (dwrpc.Void) { option (dwrpc.method) = 17; }
+  rpc OnPeerOpen (PeerEvent) returns (dwrpc.Void) { option (dwrpc.method) = 18; }
+  rpc OnPeerRemove (PeerEvent) returns (dwrpc.Void) { option (dwrpc.method) = 19; }
+  rpc OnExtension (ExtensionMessage) returns (dwrpc.Void) { option (dwrpc.method) = 20; }
+  rpc OnWait (WaitEvent) returns (dwrpc.Void) { option (dwrpc.method) = 21; }
 
   // Downloads
-  rpc WatchDownloads (WatchDownloadsRequest) returns (drpc.Void) { option (drpc.method) = 22;  }
-  rpc UnwatchDownloads (UnwatchDownloadsRequest) returns (drpc.Void) { option (drpc.method) = 23;  }
-  rpc OnDownload (DownloadEvent) returns (drpc.Void) { option (drpc.method) = 24; }
+  rpc WatchDownloads (WatchDownloadsRequest) returns (dwrpc.Void) { option (dwrpc.method) = 22;  }
+  rpc UnwatchDownloads (UnwatchDownloadsRequest) returns (dwrpc.Void) { option (dwrpc.method) = 23;  }
+  rpc OnDownload (DownloadEvent) returns (dwrpc.Void) { option (dwrpc.method) = 24; }
 
   // Uploads
-  rpc WatchUploads (WatchUploadsRequest) returns (drpc.Void) { option (drpc.method) = 25;  }
-  rpc UnwatchUploads (UnwatchUploadsRequest) returns (drpc.Void) { option (drpc.method) = 26;  }
-  rpc OnUpload (UploadEvent) returns (drpc.Void) { option (drpc.method) = 27; }
+  rpc WatchUploads (WatchUploadsRequest) returns (dwrpc.Void) { option (dwrpc.method) = 25;  }
+  rpc UnwatchUploads (UnwatchUploadsRequest) returns (dwrpc.Void) { option (dwrpc.method) = 26;  }
+  rpc OnUpload (UploadEvent) returns (dwrpc.Void) { option (dwrpc.method) = 27; }
 }
 
 service Network {
-  option (drpc.service) = 4;
+  option (dwrpc.service) = 4;
 
    // Methods
-  rpc Open (drpc.Void) returns (OpenNetworkResponse) { option (drpc.method) = 1; }
-  rpc Configure (ConfigureNetworkRequest) returns (NetworkStatusResponse) { option (drpc.method) = 2; }
-  rpc Status (NetworkStatusRequest) returns (NetworkStatusResponse) { option (drpc.method) = 3; }
-  rpc AllStatuses (drpc.Void) returns (AllNetworkStatusesResponse) { option (drpc.method) = 4; }
-  rpc RegisterExtension (RegisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 5; }
-  rpc UnregisterExtension (UnregisterExtensionRequest) returns (drpc.Void) { option (drpc.method) = 6; }
-  rpc SendExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 7; }
+  rpc Open (dwrpc.Void) returns (OpenNetworkResponse) { option (dwrpc.method) = 1; }
+  rpc Configure (ConfigureNetworkRequest) returns (NetworkStatusResponse) { option (dwrpc.method) = 2; }
+  rpc Status (NetworkStatusRequest) returns (NetworkStatusResponse) { option (dwrpc.method) = 3; }
+  rpc AllStatuses (dwrpc.Void) returns (AllNetworkStatusesResponse) { option (dwrpc.method) = 4; }
+  rpc RegisterExtension (RegisterExtensionRequest) returns (dwrpc.Void) { option (dwrpc.method) = 5; }
+  rpc UnregisterExtension (UnregisterExtensionRequest) returns (dwrpc.Void) { option (dwrpc.method) = 6; }
+  rpc SendExtension (ExtensionMessage) returns (dwrpc.Void) { option (dwrpc.method) = 7; }
 
   // Events
-  rpc OnPeerAdd (PeerEvent) returns (drpc.Void) { option (drpc.method) = 8; }
-  rpc OnPeerRemove (PeerEvent) returns (drpc.Void) { option (drpc.method) = 9; }
-  rpc OnExtension (ExtensionMessage) returns (drpc.Void) { option (drpc.method) = 10; }
+  rpc OnPeerAdd (PeerEvent) returns (dwrpc.Void) { option (dwrpc.method) = 8; }
+  rpc OnPeerRemove (PeerEvent) returns (dwrpc.Void) { option (dwrpc.method) = 9; }
+  rpc OnExtension (ExtensionMessage) returns (dwrpc.Void) { option (dwrpc.method) = 10; }
 }
