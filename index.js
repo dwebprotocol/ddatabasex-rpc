@@ -1,6 +1,6 @@
 const messages = require('./messages')
-const DRPC = require('drpc_dweb-runtime')
-const RPC = require('drpc_dweb-runtime/rpc')
+const DWRPC = require('dwrpc-runtime')
+const RPC = require('dwrpc-runtime/rpc')
 
 const errorEncoding = {
   encode: messages.RPCError.encode,
@@ -16,7 +16,7 @@ const errorEncoding = {
   }
 }
 
-class HRPCServicePlugins {
+class DWRPCServicePlugins {
   constructor (rpc) {
     const service = rpc.defineService({ id: 1 })
 
@@ -70,7 +70,7 @@ class HRPCServicePlugins {
   }
 }
 
-class DRPCServiceBasestore {
+class DWRPCServiceBasestore {
   constructor (rpc) {
     const service = rpc.defineService({ id: 2 })
 
@@ -109,7 +109,7 @@ class DRPCServiceBasestore {
   }
 }
 
-class DRPCServiceDDatabase {
+class DWRPCServiceDDatabase {
   constructor (rpc) {
     const service = rpc.defineService({ id: 3 })
 
@@ -388,7 +388,7 @@ class DRPCServiceDDatabase {
   }
 }
 
-class DRPCServiceNetwork {
+class DWRPCServiceNetwork {
   constructor (rpc) {
     const service = rpc.defineService({ id: 4 })
 
@@ -502,7 +502,7 @@ class DRPCServiceNetwork {
   }
 }
 
-module.exports = class DRPCSession extends DRPC {
+module.exports = class DWRPCSession extends DWRPC {
   constructor (rawSocket, { maxSize = 2 * 1024 * 1024 * 1024 } = {}) {
     super()
 
@@ -519,10 +519,10 @@ module.exports = class DRPCSession extends DRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.plugins = new HRPCServicePlugins(rpc)
-    this.basestorevault = new DRPCServiceBasestore(rpc)
-    this.hypercore = new DRPCServiceDDatabase(rpc)
-    this.network = new DRPCServiceNetwork(rpc)
+    this.plugins = new DWRPCServicePlugins(rpc)
+    this.basestore = new DWRPCServiceBasestore(rpc)
+    this.ddatabase = new DWRPCServiceDDatabase(rpc)
+    this.network = new DWRPCServiceNetwork(rpc)
   }
 
   destroy (err) {

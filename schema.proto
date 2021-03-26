@@ -7,7 +7,7 @@ message Peer {
   required string type = 3;
 }
 
-// Basestorevault Methods
+// Basestore Methods
 
 message OpenRequest {
   required uint32 id = 1;
@@ -24,7 +24,7 @@ message OpenResponse {
   repeated Peer peers = 6;
 }
 
-// Basestorevault Events
+// Basestore Events
 
 message FeedEvent {
   required bytes key = 1;
@@ -195,7 +195,7 @@ service Plugins {
   rpc Status (PluginRequest) returns (PluginStatus);
 }
 
-service Basestorevault {
+service Basestore {
    // Methods
   rpc Open (OpenRequest) returns (OpenResponse);
 
