@@ -1,6 +1,6 @@
 const messages = require('./messages')
-const HRPC = require('hrpc-runtime')
-const RPC = require('hrpc-runtime/rpc')
+const DWRPC = require('dwrpc-runtime')
+const RPC = require('dwrpc-runtime/rpc')
 
 const errorEncoding = {
   encode: messages.RPCError.encode,
@@ -16,14 +16,14 @@ const errorEncoding = {
   }
 }
 
-class HRPCServiceHyperspace {
+class DWRPCServiceDHub {
   constructor (rpc) {
     const service = rpc.defineService({ id: 1 })
 
     this._status = service.defineMethod({
       id: 1,
       requestEncoding: RPC.NULL,
-      responseEncoding: messages.HyperspaceStatusResponse
+      responseEncoding: messages.DHubStatusResponse
     })
 
     this._stop = service.defineMethod({
@@ -55,7 +55,7 @@ class HRPCServiceHyperspace {
   }
 }
 
-class HRPCServiceCorestore {
+class DWRPCServiceBasestore {
   constructor (rpc) {
     const service = rpc.defineService({ id: 2 })
 
@@ -94,7 +94,7 @@ class HRPCServiceCorestore {
   }
 }
 
-class HRPCServiceHypercore {
+class DWRPCServiceDDatabase {
   constructor (rpc) {
     const service = rpc.defineService({ id: 3 })
 
@@ -508,7 +508,7 @@ class HRPCServiceHypercore {
   }
 }
 
-class HRPCServiceNetwork {
+class DWRPCServiceNetwork {
   constructor (rpc) {
     const service = rpc.defineService({ id: 4 })
 
@@ -667,7 +667,7 @@ class HRPCServiceNetwork {
   }
 }
 
-module.exports = class HRPCSession extends HRPC {
+module.exports = class DWRPCSession extends DWRPC {
   constructor (rawSocket, { maxSize = 2 * 1024 * 1024 * 1024 } = {}) {
     super()
 
@@ -684,10 +684,10 @@ module.exports = class HRPCSession extends HRPC {
       if ((err !== this.rawSocketError && !isStreamError(err)) || this.listenerCount('error')) this.emit('error', err)
     })
 
-    this.hyperspace = new HRPCServiceHyperspace(rpc)
-    this.corestore = new HRPCServiceCorestore(rpc)
-    this.hypercore = new HRPCServiceHypercore(rpc)
-    this.network = new HRPCServiceNetwork(rpc)
+    this.dhub = new DWRPCServiceDHub(rpc)
+    this.basestore = new DWRPCServiceBasestore(rpc)
+    this.ddatabase = new DWRPCServiceDDatabase(rpc)
+    this.network = new DWRPCServiceNetwork(rpc)
   }
 
   destroy (err) {
